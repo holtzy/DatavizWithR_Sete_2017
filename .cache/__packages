@@ -1,0 +1,11 @@
+base
+htmlwidgets
+leaflet
+networkD3
+gapminder
+ggplot2
+DT
+RColorBrewer
+plotly
+d3heatmap
+dplyr

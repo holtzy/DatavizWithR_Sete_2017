@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualizing data - with R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Visualizing data - with R">
+  <meta name="author" content="Yan Holtz">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Visualizing data - with R</h1>
+    <h2>IFREMER, Sète, April 2017</h2>
+    <p>Yan Holtz<br/>yan1166@hotmail.com | www.r-graph-gallery.com</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Daily Meal</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/Menu1.jpg" alt="The Menu" height="500" width="750"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Daily Meal</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/Menu2.jpg" alt="The Menu" height="500" width="750"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>What is DataViz?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p style="font-weight:bold; font-style: italic; color:grey; text-align:center;">
+"<span style="font-weight:bold; color:orange;">Data visualization</span> refers to the techniques used to <span style="font-weight:bold; color:orange;">communicate data</span> or information by encoding it as visual objects (e.g., points, lines or bars) contained in <span style="font-weight:bold; color:orange;">graphics</span>."
+<a href="https://en.wikipedia.org/wiki/Data_visualization" style="float: right; font-size: 14px;" >Wikipédia</a>
+</p> 
+
+<hr width="50%">
+
+<p><center><img src="./assets/img/DataScienceProcess.png" alt="The Data Science process" height="300" width="600"></center></p>
+
+<p style="font-weight:bold; font-style: italic; color:grey; text-align:center;">
+Data visualization is part of the <span style="font-weight:bold; color:orange;">Data Science Process</span>
+</p> 
+
+<p><a href="http://r4ds.had.co.nz/graphics-for-communication.html" style="float: right; font-size: 14px; text-decoration:none;" >R for data science - Garrett Grolemund &amp; Hadley Wickham</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Tools available for Datavisualization</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/dataviztool.jpg" alt="Dataviz tools" height="525" width="700"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>About R</h2>
+  </hgroup>
+  <article data-timings="">
+    <hr width="50%">
+
+<p style="font-weight:bold; font-style: italic; color:grey; text-align:center;">
+"R is a <span style="font-weight:bold; color:orange;">free software</span> environment for <span style="font-weight:bold; color:orange;">statistical</span> computing and <span style="font-weight:bold; color:orange;">graphics</span>."
+<a href="https://www.r-project.org/" style="float: right; font-size: 14px;" >The R Project</a>
+</p> 
+
+<p><center><img src="./assets/img/Rlogo.svg" alt="R Logo" height="70" width="70"></center></p>
+
+<div style='float:left;width:48%;'>
+  
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>About R</h2>
+  </hgroup>
+  <article data-timings="">
+    <hr width="50%">
+
+<p style="font-weight:bold; font-style: italic; color:grey; text-align:center;">
+"R is a <span style="font-weight:bold; color:orange;">free software</span> environment for <span style="font-weight:bold; color:orange;">statistical</span> computing and <span style="font-weight:bold; color:orange;">graphics</span>."
+<a href="https://www.r-project.org/" style="float: right; font-size: 14px;" >The R Project</a>
+</p> 
+
+<p><center><img src="./assets/img/Rlogo.svg" alt="R Logo" height="70" width="70"></center></p>
+
+<div style='float:left;width:48%;'>
+  <pre><code class="r">1+1
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>About R</h2>
+  </hgroup>
+  <article data-timings="">
+    <hr width="50%">
+
+<p style="font-weight:bold; font-style: italic; color:grey; text-align:center;">
+"R is a <span style="font-weight:bold; color:orange;">free software</span> environment for <span style="font-weight:bold; color:orange;">statistical</span> computing and <span style="font-weight:bold; color:orange;">graphics</span>."
+<a href="https://www.r-project.org/" style="float: right; font-size: 14px;" >The R Project</a>
+</p> 
+
+<p><center><img src="./assets/img/Rlogo.svg" alt="R Logo" height="70" width="70"></center></p>
+
+<div style='float:left;width:48%;'>
+  <pre><code class="r">1+1
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">plot(1:10, 1:10)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Why R?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<ul>
+<li><span style="font-weight:bold; color:orange;">Ecosystem - Pipeline</span>: import / clean / transform / analyse / calculate / modelize / visualize / report</li>
+<li><span style="font-weight:bold; color:orange;">Free</span> and <span style="font-weight:bold; color:orange;">Open Source</span></li>
+<li><span style="font-weight:bold; color:orange;">Reproducibility</span>: 
+
+<ul>
+<li>Share the data analysis process, not just the final product</li>
+<li>Validation of results by others</li>
+<li>Re-run analysis when data changes</li>
+<li>share, edit, remix...</li>
+</ul></li>
+<li><span style="font-weight:bold; color:orange;">&gt; 10K Librairies</span></li>
+<li>Very active <span style="font-weight:bold; color:orange;">community</span></li>
+<li>Strong <span style="font-weight:bold; color:orange;">graphic capabilities</span></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>R is groooooowing</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br></p>
+
+<div style='float:left;width:48%;'>
+  <p><center><img src="./assets/img/RvsSAS.png" alt="Software and Jobs" height="300" width="400"></center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><center><img src="./assets/img/RJobs.png" alt="Software and Jobs" height="300" width="400"></center>
+<br><br><br></p>
+
+<p style="text-align:right;">
+<a href="http://r4stats.com/articles/popularity/" style="float: right; font-size: 14px; text-decoration:none;" >http://r4stats.com</a>
+</p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Case study</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center>Imagine: you received an <span style="font-weight:bold; color:orange;">interesting dataset</span>. You have to  <span style="font-weight:bold; color:orange;">analyse it</span> and make a <span style="font-weight:bold; color:orange;">report</span> to your colleagues.<center>
+<br><br><br>
+<center><img src="./assets/img/communicate.jpeg" alt="Communicate result" height="300" width="400"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>The GapMinder Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Population, Life expectency and Gross Domestic Product per capita for 142 countries and 12 years.</p>
+
+<pre><code class="r">library(gapminder)
+head(gapminder)
+</code></pre>
+
+<p><a href="https://github.com/jennybc/gapminder" style="float: center; font-size: 14px; text-decoration:none;" >The Gapminder Library</a></p>
+
+<iframe src="dt1.html" allowtransparency="true"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s start simple</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">data=subset(gapminder, year==2007)
+plot(data$lifeExp ~ data$gdpPercap)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s improve it</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Take a few minutes: what would you do to communicate this result? ...
+<br></p>
+
+<div style='float:left;width:48%;'>
+  
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s improve it</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Take a few minutes: what would you do to communicate this result? ...
+<br></p>
+
+<div style='float:left;width:48%;'>
+  <ul>
+<li>Title</li>
+<li>Axis names</li>
+<li>Shape</li>
+<li>Color</li>
+<li>Legend</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <ul>
+<li>Add information</li>
+<li>Interactivity</li>
+<li>Animation</li>
+<li>Reproductibility</li>
+<li>Share it</li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Add title and axis names</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">plot(data$lifeExp ~ data$gdpPercap,
+     xlab=&quot;Gdp per capita&quot;, ylab=&quot;Life Expectancy&quot;,
+     main=&quot;Features of countries in 2007&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Change shapes</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">plot(data$lifeExp ~ data$gdpPercap,
+     xlab=&quot;Gdp per capita&quot;, ylab=&quot;Life Expectancy&quot;,
+     main=&quot;Features of countries in 2007&quot;,
+     pch=20, cex=3)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Add colors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">plot(data$lifeExp ~ data$gdpPercap,
+     xlab=&quot;Gdp per capita&quot;, ylab=&quot;Life Expectancy&quot;,
+     main=&quot;Features of countries in 2007&quot;,
+     pch=20, cex=3, col=&quot;blue&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>About colors in R</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <p><br></p>
+
+<ul>
+<li><p style="color:orange; font-weight:bold;">Color names</p></li>
+<li>Color number</li>
+<li>RGB<br></li>
+<li>R Color Brewer</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">plot(lifeExp ~ gdpPercap, data=data, 
+     pch=20, cex=4, col=&quot;forestgreen&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
+Get all the 657 possibilities with</p>
+
+<pre><code class="r">colors()
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>About colors in R</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <p><br></p>
+
+<ul>
+<li>Color names</li>
+<li><p style="color:orange; font-weight:bold;">Color number</p></li>
+<li>RGB<br></li>
+<li>R Color Brewer</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">plot(lifeExp ~ gdpPercap, data=data, 
+     pch=20, cex=4, col=colors()[18])
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>About colors in R</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <p><br></p>
+
+<ul>
+<li>Color names</li>
+<li>Color number</li>
+<li><p style="color:orange; font-weight:bold;">RGB</p></li>
+<li>R Color Brewer</li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">plot(lifeExp ~ gdpPercap, data=data, 
+     pch=20, cex=5, col=rgb(0.2,0.3,0.8,0.4))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>About colors in R</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;'>
+  <p><br></p>
+
+<ul>
+<li>Color names</li>
+<li>Color number</li>
+<li>RGB</li>
+<li><p style="color:orange; font-weight:bold;">R Color Brewer</p></li>
+</ul>
+
+<pre><code class="r">library(RColorBrewer)
+pal &lt;- brewer.pal(5, &quot;Set1&quot;)
+pal
+</code></pre>
+
+<pre><code>## [1] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot; &quot;#984EA3&quot; &quot;#FF7F00&quot;
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><center><img src="./assets/img/Rcolbrew.png" alt="RColorBrewer Palettes" height="450" width="450"></center></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Map a color to a variable</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># attribute a color to each continent:
+my_colors=pal[as.numeric(data$continent)]
+
+# use this vector as color for the plot
+plot(lifeExp ~ gdpPercap, data=data, pch=20, cex=3, col=my_colors)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Add a legend</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">#plot
+my_colors=pal[as.numeric(data$continent)]
+plot(lifeExp ~ gdpPercap, data=data, pch=20, cex=3, col=my_colors)
+
+#add legend
+legend(&quot;bottomright&quot;, legend=levels(data$continent), col=pal, pch=20, bty=&quot;n&quot;, pt.cex=3, horiz = F)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Finally</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># Map the color:
+library(RColorBrewer)
+pal &lt;- brewer.pal(5, &quot;Set1&quot;)
+my_colors=pal[as.numeric(data$continent)]
+
+# Make the plot 
+par(mar=c(3,3,2,2)) # Margin
+plot(data$lifeExp ~ data$gdpPercap,
+
+     # titles
+     xlab=&quot;Gross Domestic Product per capita&quot;, ylab=&quot;Life Expectancy&quot;,
+     main=&quot;Features of countries in 2007&quot;,
+
+     # color
+     col=my_colors,
+
+     # shapes
+     pch=20, cex=3,
+
+     # no box:`
+     bty=&quot;l&quot;)
+
+#add legend
+legend(&quot;bottomright&quot;, legend=levels(data$continent), col=pal, pch=20, bty=&quot;n&quot;, pt.cex=3, horiz = F)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Getting crazy??</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/crazygif.gif" alt="Getting crazy?" height="450" width="450"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <article data-timings="">
+    <p><br>
+<img src="assets/fig/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <article data-timings="">
+    <p><center><img src="./assets/img/RGG1.png" alt="The R graph gallery" height="550" width="550"></center></p>
+
+<p style="font-weight:bold; font-style: italic; color:orange; text-align:center;">
+"Help and Inspiration concerning R graphics"
+</p> 
+
+<p style="font-weight:bold; font-style: italic; color:grey; text-align:center;">
+<a href="www.r-graph-gallery.com" style="font-size: 14px;" >www.r-graph-gallery.com</a>
+</p> 
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Individual pages</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/RGG2.png" alt="The R graph gallery" height="540" width="750"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Portfolio pages</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/RggPortfolio.png" alt="The Menu" height="500" width="550"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>The Gallery needs you!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/RGGmap.png" alt="The Menu" height="400" width="750"></center></p>
+
+<p style="text-align:center;"><a href="http://www.r-graph-gallery.com/contributors/" style="float: center; font-size: 14px;" >Propose or request a graph</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <article data-timings="">
+    <p><br>
+<img src="assets/fig/unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>The Magic of GGplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>The Magic of GGplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(ggplot2)
+ggplot(data, 
+  aes(gdpPercap, lifeExp, size = pop, color = continent, frame = year)) +
+  geom_point()
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>About GGplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Created by <span style="font-weight:bold; color:orange;">Hadley Wickham</span> in 2005</li>
+<li>Based on Leland Wilkinson&#39;s book: <a href="http://www.springer.com/fr/book/9780387245447" style="font-size: 14px;">The Grammar of Graphics</a></li>
+<li>&quot;tries to take the good parts of base and lattice graphics and none of the bad parts&quot; </li>
+<li>2 modes: <s>qplot()</s> and <span style="font-weight:bold; color:orange;">ggplot()</span>
+<br><br></li>
+</ul>
+
+<p><center><img src="./assets/img/learningcurve.png" alt="The dataviz learning curve" height="250" width="450"></center></p>
+
+<p style="text-align:center;"><a href="https://github.com/jennybc/ggplot2-tutorial/tree/master/ggplot2-tutorial-slides" style="float: center; font-size: 14px;" >Jennybc - ggplot2 tutorial</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
+    <h2>Learning GGplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The <a href="https://www.amazon.com/dp/1449316956/ref=cm_sw_su_dp?tag=ggplot2-20" style="font-size: 14px;" >R Graphics Cookbook</a> by Winston Chang</li>
+<li>The <a href="amzn.com/0387981403?tag=ggplot2-20" style="font-size: 14px;" >ggplot2: Elegant Graphics for Data Analysis</a> by Hadley Wickham</li>
+<li>Learn with examples with the <a href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/" style="font-size: 14px;" >Ggplot2 section</a> of the R graph gallery
+<br><br></li>
+</ul>
+
+<div style='float:left;width:48%;'>
+  <p><center><img src="./assets/img/ggplot2book1.png" alt="book" height="250" width="200"></center></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><center><img src="./assets/img/ggplot2book2.png" alt="book" height="250" width="200"></center></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>About the tidyverse</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center>&quot;The <a href="http://tidyverse.org/" style="font-size: 14px;" >tidyverse</a>: a collection of R packages that share common philosophies and are designed to work together&quot;</center></p>
+
+<p><center><img src="./assets/img/tidyverse.png" alt="the Tidyverse" height="200" width="600"></center></p>
+
+<p><center><img src="./assets/img/extidy.png" alt="Tidy example" height="250" width="500"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Faceting</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, color = continent, frame = year)) +
+  geom_point() +
+  xlim(0, 60000) +
+  facet_wrap(~year)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>Faceting (again)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(data, aes(gdpPercap, lifeExp, size = pop, color = continent, frame = year)) +
+  geom_point() +
+  xlim(0, 60000) +
+  facet_wrap(~continent, nrow=3) + 
+  theme(legend.position=&quot;none&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>Boxplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(gapminder, aes(x=continent, y=lifeExp, color=continent, fill=continent)) + 
+  geom_boxplot(alpha=0.3)  + 
+  theme(legend.position=&quot;none&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h2>Warning: always check distribution</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(gapminder, aes(x=continent, y=lifeExp, color=continent, fill=continent)) + 
+  geom_violin(alpha=0.3)  + 
+  theme(legend.position=&quot;none&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h2>Warning: always check distribution</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">ggplot(gapminder, aes(x=continent, y=lifeExp, color=continent, fill=continent)) + 
+  geom_boxplot(alpha=0.3) + 
+  geom_jitter(color=&quot;grey&quot;, size=0.8) + 
+  theme(legend.position=&quot;none&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-28-1.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>With Data preparation</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(dplyr)
+gapminder  %&gt;% 
+
+    select(continent, year, pop) %&gt;% 
+    group_by(year, continent) %&gt;% 
+    summarize(sum_pop = sum(as.numeric(pop))) %&gt;% 
+
+    ggplot( aes(fill=continent, y=sum_pop, x=year)) + 
+        geom_bar(stat=&quot;identity&quot;) + 
+        ylab(&quot;Population per continent&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-29-1.png" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  <hgroup>
+    <h2>With Data preparation</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(dplyr)
+gapminder  %&gt;% 
+    filter(continent==&quot;Asia&quot;) %&gt;% filter(pop &gt; 50000000) %&gt;%
+    select(country, year, pop) %&gt;% 
+    group_by(year, country) %&gt;% 
+    ggplot( aes(x=year, y=pop, color=country, fill=country)) + 
+        geom_area() +
+        facet_wrap(~country)+
+        theme(legend.position=&quot;none&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  <hgroup>
+    <h2>What&#39;s next?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br><br>
+<img src="assets/fig/unnamed-chunk-31-1.png" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <hgroup>
+    <h2>Diving into Interactive charts</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><span style="font-weight:bold; color:orange;">Zoom</span> on a specific part</li>
+<li>Get information when <span style="font-weight:bold; color:orange;">hovering</span></li>
+<li>Make groups <span style="font-weight:bold; color:orange;">appear / disappear</span></li>
+<li><span style="font-weight:bold; color:orange;">export</span> directly</li>
+<li>move on axis</li>
+<li class='..'><span style="font-weight:bold; color:orange;">Play</span> with your chart</li>
+<li class='..'>Make your dataviz <span style="font-weight:bold; color:orange;">alive</span>!</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <hgroup>
+    <h2>HTML WIDGETs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><b>&quot;Bring the best of <span style="font-weight:bold; color:orange;">JavaScript</span> data visualization to <span style="font-weight:bold; color:orange;">R</span>&quot;</b></center></p>
+
+<p><center><img src="./assets/img/htmlwidget.png" alt="The dataviz learning curve" height="450" width="750"></center></p>
+
+<p style="text-align:center;"><a href="http://gallery.htmlwidgets.org/" style="float: center; font-size: 14px;" >The HTML Widgets for R</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-47" style="background:;">
+  <hgroup>
+    <h2>Plotly</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/plotly.png" alt="Plotly" height="100" width="250"></center></p>
+
+<ul>
+<li>&quot;Plotly is the modern <span style="font-weight:bold; color:orange;">platform</span> for agile business intelligence and data science&quot;</li>
+<li><a href="https://plot.ly/">https://plot.ly/</a></li>
+<li>and a <span style="font-weight:bold; color:orange;">html</span> widget as well</li>
+</ul>
+
+<pre><code class="r">library(plotly)
+</code></pre>
+
+<ul>
+<li>Make a plot with <span style="font-weight:bold; color:orange;">plot_ly()</span> or <span style="font-weight:bold; color:orange;">ggplotly()</span></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  <hgroup>
+    <h2>Apply plotly to the gapminder dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># Basic ggplot2 chart
+p=ggplot(data, 
+  aes(gdpPercap, lifeExp, size = pop, color = continent, text=country)) +
+  geom_point()
+
+# Made interactive with plotly
+library(plotly)
+ggplotly(p)
+</code></pre>
+
+<p>If you know ggplot2, you know how to do interactive charts!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  <hgroup>
+    <h2>Apply plotly to the gapminder dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src="plotly1.html" width=100% height=500% allowtransparency="true"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-50" style="background:;">
+  <hgroup>
+    <h2>Leaflet</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src="leaflet1.html" width=100% height=100% allowtransparency="true"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-51" style="background:;">
+  <hgroup>
+    <h2>D3network</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src="D3network.html" width=100% height=500% allowtransparency="true"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-52" style="background:;">
+  <hgroup>
+    <h2>D3heatmap</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src="D3heatmap.html" width=100% height=500% allowtransparency="true"> </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-53" style="background:;">
+  <hgroup>
+    <h2>Communicate your result</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-54" style="background:;">
+  <hgroup>
+    <h2>Communicate your result</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><span style="font-weight:bold; color:orange;">Copy and paste</span> in powerpoint?  in an e-mail?</li>
+<li>Make a figure for publication with <span style="font-weight:bold; color:orange;">handmade modification</span>?</li>
+<li>Are you sure you can provide <span style="font-weight:bold; color:orange;">exactly the same result</span> as last time?
+<br><br></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-55" style="background:;">
+  <hgroup>
+    <h2>Communicate your result</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><span style="font-weight:bold; color:orange;">Copy and paste</span> in powerpoint?  in an e-mail?</li>
+<li>Make a figure for publication with <span style="font-weight:bold; color:orange;">handmade modification</span>?</li>
+<li>Are you sure you can provide <span style="font-weight:bold; color:orange;">exactly the same result</span> as last time?
+<br><br>
+<center><img src="./assets/img/databin.jpeg" alt="Data and garbage" height="400" width=230"></center></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-56" style="background:;">
+  <hgroup>
+    <h2>Most Published Research Findings Are False</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/FindingsFalse.png" alt="Findings are false" height="400" width="750"></center></p>
+
+<p style="text-align:center;"><a href="http://www.r-graph-gallery.com/contributors/" style="float: center; font-size: 14px;" >Plos Medicine</a></p>
+
+<p style="text-align:center;">We need <span style="font-weight:bold; color:orange;">reproductibility</span>, And <span style="font-weight:bold; color:orange;">R</span> is the perfect tool for that.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-57" style="background:;">
+  <hgroup>
+    <h2>Introducing RMarkDown</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/RMDlogo.png" alt="Basic RMD" height="100" width="170"></center>
+<br></p>
+
+<ul>
+<li>Turn your <span style="font-weight:bold; color:orange;">analysis</span> into <span style="font-weight:bold; color:orange;">reports</span></li>
+<li>Fully <span style="font-weight:bold; color:orange;">reproducible</span></li>
+<li>Weave together <span style="font-weight:bold; color:orange;">narrative text</span> and <span style="font-weight:bold; color:orange;">code</span></li>
+<li>Many <span style="font-weight:bold; color:orange;">output formats</span>: PDF, HTML, websites...</li>
+</ul>
+
+<p style="text-align:right;"><a href="http://rmarkdown.rstudio.com/" style=font-size: 14px;" >http://rmarkdown.rstudio.com/</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-58" style="background:;">
+  <hgroup>
+    <h2>Header</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">---
+title: &quot;Analysing the Gapminder dataset&quot;
+author: &quot;Yan Holtz&quot;
+date: &#39;`r as.character(format(Sys.Date(), format=&quot;%d/%m/%Y&quot;))`&#39;
+output:
+  html_document:
+    toc: yes
+---
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-59" style="background:;">
+  <hgroup>
+    <h2>Title &amp; text</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">---
+title: &quot;Analysing the Gapminder dataset&quot;
+author: &quot;Yan Holtz&quot;
+date: &#39;`r as.character(format(Sys.Date(), format=&quot;%d/%m/%Y&quot;))`&#39;
+output:
+  html_document:
+    toc: yes
+---
+
+
+# 1- Introduction
+Hi Robert, here is my reproducible analysis concerning the Gapminder dataset!
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-60" style="background:;">
+  <hgroup>
+    <h2>R code !</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">---
+title: &quot;Analysing the Gapminder dataset&quot;
+author: &quot;Yan Holtz&quot;
+date: &#39;`r as.character(format(Sys.Date(), format=&quot;%d/%m/%Y&quot;))`&#39;
+output:
+  html_document:
+    toc: yes
+---
+
+
+# 1- Introduction
+Hi Robert, here is my reproducible analysis concerning the Gapminder dataset!
+
+
+# 2- Get data
+The data are included in the gapminder library
+\```{r}
+library(gapminder)
+head(gapminder)
+\```
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-61" style="background:;">
+  <hgroup>
+    <h2>Basic HTML output</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/RMD1.png" alt="Basic RMD" height="500" width="750"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/contributors/" style="float: center; font-size: 14px;" >See Code</a>
+<a href="http://www.r-graph-gallery.com/contributors/" style="float: center; font-size: 14px;" >See HTML document</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-62" style="background:;">
+  <hgroup>
+    <h2>Pimp my RMD</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/RMD2.png" alt="Basic RMD" height="400" width="750"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/contributors/" style="float: center; font-size: 14px;" >See Code</a>
+<a href="http://www.r-graph-gallery.com/contributors/" style="float: center; font-size: 14px;" >See HTML document</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-63" style="background:;">
+  <hgroup>
+    <h2>Introduction to shiny applications</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-64" style="background:;">
+  <hgroup>
+    <h2>Introduction to shiny applications</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/Demo_appli.gif" alt="Basic RMD" height="400" width="750"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-65" style="background:;">
+  <hgroup>
+    <h2>Introducion to shiny applications</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/rshiny.png" alt="Basic RMD" height="100" width="150"></center></p>
+
+<div style='float:left;width:48%;'>
+  <p style="font-weight:bold; color:orange; text-align:center;">Ui.R</p>
+
+<pre><code class="r">ui &lt;- fluidPage(
+
+  # Widget to choose year
+  selectInput(
+    &quot;year&quot;, &quot;Select a year!&quot;, 
+    choices=unique(gapminder$year), selected=1952
+    ),
+
+  # Interactive plot
+  plotlyOutput(&quot;plot&quot;)
+
+)
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p style="font-weight:bold; color:orange; text-align:center;">Server.R</p>
+
+<pre><code class="r">server &lt;- function(input, output) {
+    output$plot &lt;- renderPlotly({
+
+        # Select data
+        data=subset(gapminder, year==input$year)
+
+        # Make the plot
+        p=ggplot(data, 
+            aes(gdpPercap, lifeExp, size = pop, 
+                color = continent, frame = year)) +
+            geom_point()
+        ggplotly(p)
+    })  
+}
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-66" style="background:;">
+  <hgroup>
+    <h2>Going further with Shiny</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/DemoAppTI.gif" alt="TI Demo" height="500" width="900"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-67" style="background:;">
+  <hgroup>
+    <h2>be open-minded!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="./assets/img/otherviz.jpg" alt="Other Viz" height="550" width="800"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-68" style="background:;">
+  <hgroup>
+    <h2>From Dataviz to DataArt</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-69" style="background:black;">
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/dataart1.png" alt="Data Art"  width="600"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/wp-content/uploads/2015/11/55_double_heart.png" style="float: center; font-size: 14px;" >Gaston Sanchez</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-70" style="background:;">
+  <article data-timings="">
+    <p><br><br>
+<center><img src="./assets/img/dataart2.jpeg" alt="Data Art"  width="800"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/188-alisa-singer-dataart/" style="float: center; font-size: 14px;" >Alisa Singer</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-71" style="background:;">
+  <article data-timings="">
+    <p><br>
+<br>
+<br>
+<center><img src="./assets/img/dataart3.jpeg" alt="Data Art"  width="800"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/188-alisa-singer-dataart/" style="float: center; font-size: 14px;" >Alisa Singer</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-72" style="background:;">
+  <article data-timings="">
+    <p><center><img src="./assets/img/dataart4.jpeg" alt="Data Art"  width="450"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/188-alisa-singer-dataart/" style="float: center; font-size: 14px;" >Alisa Singer</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-73" style="background:;">
+  <article data-timings="">
+    <p><center><img src="./assets/img/dataart5.jpeg" alt="Data Art"  width="500"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/186-marcus-volz-dataart/" style="float: center; font-size: 14px;" >Marcus Volz</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-74" style="background:;">
+  <article data-timings="">
+    <p><center><img src="./assets/img/dataart6.png" alt="Data Art"  width="500"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/186-marcus-volz-dataart/" style="float: center; font-size: 14px;" >Marcus Volz</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-75" style="background:;">
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/dataart7.jpeg" alt="Data Art"  width="600"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/207-nadieh-bremer/" style="float: center; font-size: 14px;" >Alisa Singer</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-76" style="background:;">
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/dataart8.jpeg" alt="Data Art"  width="350"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/207-nadieh-bremer/" style="float: center; font-size: 14px;" >Nadieh Bremer</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-77" style="background:;">
+  <article data-timings="">
+    <p><br>
+<center><img src="./assets/img/dataart9.png" alt="Data Art"  width="800"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/246-oliver-obrien-dataart/" style="float: center; font-size: 14px;" >Olivier O'Brien</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-78" style="background:;">
+  <article data-timings="">
+    <p><br><br>
+<center><img src="./assets/img/dataart10.png" alt="Data Art"  width="800"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/ style="float: center; font-size: 14px;" >Yan Holtz</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-79" style="background:;">
+  <article data-timings="">
+    <p><center><img src="./assets/img/dataart11.png" alt="Data Art"  width="400"></center></p>
+
+<p style="text-align:center;">
+<a href="http://www.r-graph-gallery.com/144-droid-bb-8-data-art/" style="float: center; font-size: 14px;" >Victor Perrier</a>
+</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-80" style="background:url(assets/img/rggposter.jpeg);">
+  <article data-timings="">
+    <p><br><br><br>
+<center></p>
+
+<p style="border:1px solid black; padding:1%; width:600px; background-color: white">
+<span style="font-weight:bold; color:orange; text-align:center;">Take Home message</span>
+<br><br>
+- Use <span style="font-weight:bold; color:orange;">R !</span><br>
+- The <span style="font-weight:bold; color:orange;">Tidyverse</span> is your friend<br>
+- <span style="font-weight:bold; color:orange;">Interactive charts</span> are just here!<br>
+- Make your analysis <span style="font-weight:bold; color:orange;">reproducible</span><br>
+- Explore <span style="font-weight:bold; color:orange;">new graphic methods</span><br>
+<br>
+</p>
+
+<p></center>
+<br></p>
+
+<p><b>Yan Holtz</b><br>
+<a href="mailto:yan1166@hotmail.com">yan1166@hotmail.com</a><br>
+<a href="holtzyan.wordpress.com">holtzyan.wordpress.com</a><br>
+Slide made with <a href="http://slidify.org/">Slidify</a><br>
+And available on <a href="github.com/holtzy">github.com/holtzy</a>  </p>
+
+<div style="position: absolute; left: 750px; top: 500px; z-index:100">
+  <img src="./assets/img/rgglogo.png" alt="The Data Science process"  width="300"></center>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Daily Meal'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Daily Meal'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='What is DataViz?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Tools available for Datavisualization'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='About R'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='About R'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='About R'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Why R?'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='R is groooooowing'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Case study'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='The GapMinder Dataset'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Let&#39;s start simple'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Let&#39;s improve it'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Let&#39;s improve it'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Add title and axis names'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Change shapes'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Add colors'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='About colors in R'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='About colors in R'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='About colors in R'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='About colors in R'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Map a color to a variable'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Add a legend'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Finally'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Getting crazy??'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='NA'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='NA'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Individual pages'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Portfolio pages'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='The Gallery needs you!'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='NA'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='The Magic of GGplot2'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='The Magic of GGplot2'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='About GGplot2'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Learning GGplot2'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='About the tidyverse'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Faceting'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Faceting (again)'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Boxplot'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Warning: always check distribution'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='Warning: always check distribution'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='With Data preparation'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title='With Data preparation'>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='What&#39;s next?'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Diving into Interactive charts'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='HTML WIDGETs'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='Plotly'>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Apply plotly to the gapminder dataset'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='Apply plotly to the gapminder dataset'>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Leaflet'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='D3network'>
+         51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title='D3heatmap'>
+         52
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='Communicate your result'>
+         53
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='Communicate your result'>
+         54
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title='Communicate your result'>
+         55
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='Most Published Research Findings Are False'>
+         56
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='Introducing RMarkDown'>
+         57
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title='Header'>
+         58
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='Title &amp; text'>
+         59
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=60 title='R code !'>
+         60
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=61 title='Basic HTML output'>
+         61
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=62 title='Pimp my RMD'>
+         62
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=63 title='Introduction to shiny applications'>
+         63
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=64 title='Introduction to shiny applications'>
+         64
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=65 title='Introducion to shiny applications'>
+         65
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=66 title='Going further with Shiny'>
+         66
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=67 title='be open-minded!'>
+         67
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=68 title='From Dataviz to DataArt'>
+         68
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=69 title='NA'>
+         69
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=70 title='NA'>
+         70
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=71 title='NA'>
+         71
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=72 title='NA'>
+         72
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=73 title='NA'>
+         73
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=74 title='NA'>
+         74
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=75 title='NA'>
+         75
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=76 title='NA'>
+         76
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=77 title='NA'>
+         77
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=78 title='NA'>
+         78
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=79 title='NA'>
+         79
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=80 title='NA'>
+         80
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
